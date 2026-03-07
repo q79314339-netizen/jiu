@@ -48,10 +48,7 @@ button{
   border-radius:10px;cursor:pointer;
 }
 button:hover{background:#1ebe5d;}
-/* Blog cards */
-.blog-card{background:#f9f9f9;padding:18px;margin-top:15px;border-radius:12px;}
-.blog-card h3{margin-top:0;}
-.read-more{display:none;margin-top:10px;font-size:15px;color:#444;}
+
 /* Product gallery */
 .product-gallery{
   display:grid;
@@ -67,7 +64,29 @@ button:hover{background:#1ebe5d;}
   transition: transform 0.3s;
 }
 .product-gallery img:hover{transform:scale(1.05);}
-.info-section{margin-top:30px;}
+
+/* Blog left-right layout */
+.blog-left-right{
+  display:flex;
+  gap:20px;
+  margin-top:20px;
+  align-items:center;
+}
+.blog-left-right img{
+  width:300px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+.blog-text h3{margin-top:0;}
+.blog-text p{color:#555;font-size:15px;}
+.blog-text button{
+  margin-top:10px;
+  background:#25D366;color:white;border:none;
+  padding:8px 15px;border-radius:8px;cursor:pointer;
+}
+.blog-text button:hover{background:#1ebe5d;}
+.read-more{display:none;margin-top:10px;font-size:14px;color:#444;}
+
 /* Testimonials */
 .testimonials-container{margin-top:15px;overflow:hidden;}
 .testimonials-track{display:flex;transition:transform 0.4s ease;}
@@ -82,10 +101,14 @@ button:hover{background:#1ebe5d;}
   display:flex;justify-content:center;align-items:center;
   color:white;font-weight:bold;
 }
-@media(max-width:600px){
+
+@media(max-width:768px){
+  .blog-left-right{flex-direction:column;}
+  .blog-left-right img{width:100%;}
   .product-gallery{grid-template-columns:1fr;}
   .testimonial-card{flex:0 0 90%;}
 }
+
 /* Floating WA */
 #floatingWA{
   position:fixed;
@@ -126,9 +149,9 @@ button:hover{background:#1ebe5d;}
 <img src="https://cdn.pixabay.com/photo/2016/03/27/20/44/watch-1284081_1280.jpg" onclick="goWA()">
 </div>
 
-<!-- Auto 20 Blog Articles -->
+<!-- Blog Articles (左右图文布局) -->
 <h2>📰 Latest Articles</h2>
-<div id="autoBlogContainer"></div>
+<div id="blogContainer"></div>
 
 <!-- Info Section -->
 <div class="info-section">
@@ -157,7 +180,7 @@ button:hover{background:#1ebe5d;}
 </div>
 </div>
 
-<!-- Floating WA -->
+<!-- Floating WhatsApp -->
 <a href="https://wa.me/8618159028424" id="floatingWA" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:60px;height:60px;">
 </a>
@@ -185,25 +208,30 @@ function toggleArticle(btn){
   fbq('track','ViewContent');
 }
 
-// Auto 20 blog articles
-const topics=[
-  "Luxury Bags 2025","How To Choose Replica Watches","Top Trending Sneakers",
-  "Buying Direct From Factory","Replica Bags vs Original Bags","Wholesale Watches Tips",
-  "Factory Price Advantages","Shipping Internationally From China","High Quality Material Guide",
-  "Best Selling Products Online","How To Contact Suppliers","Top Luxury Brands Copy",
-  "Leather Quality Explained","Stitching & Craftsmanship Tips","Top Fashion Accessories 2025",
-  "Popular Gifts For Customers","Online Shopping Safety Tips","How To Save On Bulk Orders",
-  "WhatsApp Ordering Guide","Fast Delivery Tips"
+// 2-3 Blog Articles
+const blogs = [
+  {title:"How To Choose High Quality Bags", img:"https://cdn.pixabay.com/photo/2017/08/10/07/00/bag-2611558_1280.jpg", content:"Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement."},
+  {title:"Why Buy Direct From Factory", img:"https://cdn.pixabay.com/photo/2016/11/29/03/53/fashion-1866574_1280.jpg", content:"Factories remove middlemen which reduces price by 30-50%. Many international buyers now purchase directly through WhatsApp suppliers."},
+  {title:"Top Trending Watches 2025", img:"https://cdn.pixabay.com/photo/2016/03/27/20/44/watch-1284081_1280.jpg", content:"Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing."}
 ];
-const autoBlogContainer=document.getElementById('autoBlogContainer');
-topics.forEach(title=>{
-  const card=document.createElement('div');
-  card.className='blog-card';
-  const summary="Read our expert guide about "+title+". Click to expand full info.";
-  card.innerHTML=`<h3>${title}</h3><p>${summary}</p>
-  <button onclick="toggleArticle(this)">Read More</button>
-  <div class="read-more">Full article content for ${title}. Contact us via WhatsApp for details.</div>`;
-  autoBlogContainer.appendChild(card);
+
+const blogContainer = document.getElementById('blogContainer');
+blogs.forEach((b,i)=>{
+  const card = document.createElement('div');
+  card.className = 'blog-left-right';
+  const isEven = i%2===0;
+  card.innerHTML = `
+    <div class="blog-image" style="order:${isEven?0:1}">
+      <img src="${b.img}">
+    </div>
+    <div class="blog-text" style="order:${isEven?1:0}">
+      <h3>${b.title}</h3>
+      <p>${b.content}</p>
+      <button onclick="toggleArticle(this)">Read More</button>
+      <div class="read-more">${b.content} Contact us via WhatsApp for details.</div>
+    </div>
+  `;
+  blogContainer.appendChild(card);
 });
 
 // Testimonials
