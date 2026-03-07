@@ -131,14 +131,14 @@ button:hover{background:#1ebe5d;}
 <button id="waBtn">Contact on WhatsApp</button>
 </div>
 
-<!-- Product Gallery -->
+<!-- Product Gallery (2张不同高清图) -->
 <h2>👜 Popular Products</h2>
 <div class="product-gallery">
-<img src="https://images.unsplash.com/photo-1682745230951-8a5aa9a474a0?auto=format&fit=crop&w=1200" onclick="goWA()">
-<img src="https://images.unsplash.com/photo-1583623733237-4d5764a9dc82?auto=format&fit=crop&w=1200" onclick="goWA()">
+  <img src="https://images.unsplash.com/photo-1682745230951-8a5aa9a474a0?auto=format&fit=crop&w=1200" onclick="goWA()">
+  <img src="https://images.unsplash.com/photo-1600185367414-48509f22217b?auto=format&fit=crop&w=1200" onclick="goWA()">
 </div>
 
-<!-- Blog Articles (左右图文布局) -->
+<!-- Blog Articles (2篇不同高清图) -->
 <h2>📰 Latest Articles</h2>
 <div id="blogContainer"></div>
 
@@ -197,10 +197,18 @@ function toggleArticle(btn){
   fbq('track','ViewContent');
 }
 
-// 2 Blog Articles
+// Blog Articles (2篇不同图)
 const blogs = [
-  {title:"How To Choose High Quality Bags", img:"https://images.unsplash.com/photo-1682745230951-8a5aa9a474a0?auto=format&fit=crop&w=1200", content:"Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement."},
-  {title:"Top Trending Watches 2025", img:"https://images.unsplash.com/photo-1583623733237-4d5764a9dc82?auto=format&fit=crop&w=1200", content:"Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing."}
+  {
+    title:"How To Choose High Quality Bags",
+    img:"https://images.unsplash.com/photo-1583623733237-4d5764a9dc82?auto=format&fit=crop&w=1200",
+    content:"Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement."
+  },
+  {
+    title:"Top Trending Watches 2025",
+    img:"https://images.unsplash.com/photo-1585079541595-8e21b0e7f8c6?auto=format&fit=crop&w=1200",
+    content:"Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing."
+  }
 ];
 
 const blogContainer = document.getElementById('blogContainer');
