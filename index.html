@@ -86,6 +86,16 @@ button:hover{background:#1ebe5d;}
   .product-gallery{grid-template-columns:1fr;}
   .testimonial-card{flex:0 0 90%;}
 }
+/* Floating WA */
+#floatingWA{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:999;
+  cursor:pointer;
+  transition: transform 0.3s;
+}
+#floatingWA:hover{transform:scale(1.1);}
 </style>
 </head>
 <body>
@@ -116,32 +126,9 @@ button:hover{background:#1ebe5d;}
 <img src="https://cdn.pixabay.com/photo/2016/03/27/20/44/watch-1284081_1280.jpg" onclick="goWA()">
 </div>
 
-<!-- Blog Articles -->
+<!-- Auto 20 Blog Articles -->
 <h2>📰 Latest Articles</h2>
-<div class="blog-card">
-<h3>How To Choose High Quality Bags</h3>
-<p>Many buyers don't know how to judge quality when buying bags online.</p>
-<button onclick="toggleArticle(this)">Read More</button>
-<div class="read-more">
-Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement.
-</div>
-</div>
-<div class="blog-card">
-<h3>Why Buy Direct From Factory</h3>
-<p>Buying directly from factory can save a lot of cost.</p>
-<button onclick="toggleArticle(this)">Read More</button>
-<div class="read-more">
-Factories remove middlemen which reduces price by 30-50%. Many international buyers now purchase directly through WhatsApp suppliers.
-</div>
-</div>
-<div class="blog-card">
-<h3>Top Trending Watches 2025</h3>
-<p>Luxury watches remain one of the most demanded accessories.</p>
-<button onclick="toggleArticle(this)">Read More</button>
-<div class="read-more">
-Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing.
-</div>
-</div>
+<div id="autoBlogContainer"></div>
 
 <!-- Info Section -->
 <div class="info-section">
@@ -168,16 +155,20 @@ Models with stainless steel and automatic movement are the most popular. Many bu
 <div style="text-align:center;margin-top:25px;">
 <button id="waBtn2">Chat With Us On WhatsApp</button>
 </div>
-
 </div>
 
+<!-- Floating WA -->
+<a href="https://wa.me/8618159028424" id="floatingWA" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:60px;height:60px;">
+</a>
+
 <script>
+// WhatsApp random pool
 const WA_POOL=[
 {link:"https://wa.me/8618159028424"},
 {link:"https://wa.me/8618396503253"},
 {link:"https://wa.me/8618050517014"}
 ];
-
 let waIndex=Math.floor(Math.random()*WA_POOL.length);
 function goWA(){
   const eventId='evt_'+Date.now();
@@ -187,11 +178,33 @@ function goWA(){
 document.getElementById("waBtn").onclick=goWA;
 document.getElementById("waBtn2").onclick=goWA;
 
+// Toggle Read More
 function toggleArticle(btn){
   const content=btn.nextElementSibling;
   content.style.display=content.style.display==="block"?"none":"block";
   fbq('track','ViewContent');
 }
+
+// Auto 20 blog articles
+const topics=[
+  "Luxury Bags 2025","How To Choose Replica Watches","Top Trending Sneakers",
+  "Buying Direct From Factory","Replica Bags vs Original Bags","Wholesale Watches Tips",
+  "Factory Price Advantages","Shipping Internationally From China","High Quality Material Guide",
+  "Best Selling Products Online","How To Contact Suppliers","Top Luxury Brands Copy",
+  "Leather Quality Explained","Stitching & Craftsmanship Tips","Top Fashion Accessories 2025",
+  "Popular Gifts For Customers","Online Shopping Safety Tips","How To Save On Bulk Orders",
+  "WhatsApp Ordering Guide","Fast Delivery Tips"
+];
+const autoBlogContainer=document.getElementById('autoBlogContainer');
+topics.forEach(title=>{
+  const card=document.createElement('div');
+  card.className='blog-card';
+  const summary="Read our expert guide about "+title+". Click to expand full info.";
+  card.innerHTML=`<h3>${title}</h3><p>${summary}</p>
+  <button onclick="toggleArticle(this)">Read More</button>
+  <div class="read-more">Full article content for ${title}. Contact us via WhatsApp for details.</div>`;
+  autoBlogContainer.appendChild(card);
+});
 
 // Testimonials
 const testimonials=[
@@ -208,8 +221,7 @@ testimonials.forEach(t=>{
   const name=names[Math.floor(Math.random()*names.length)];
   const div=document.createElement("div");
   div.className="testimonial-card";
-  div.innerHTML=`
-  <div class="testimonial-avatar" style="background:${randomColor()}">${name[0]}</div>
+  div.innerHTML=`<div class="testimonial-avatar" style="background:${randomColor()}">${name[0]}</div>
   <p><strong>${name}</strong>: ${t}</p>`;
   track.appendChild(div);
 });
