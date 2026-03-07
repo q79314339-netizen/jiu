@@ -13,7 +13,6 @@ if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
 t=b.createElement(e);t.async=!0;t.src=v;
 s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
 }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
 fbq('init', '1355803952514780');
 fbq('track', 'PageView');
 </script>
@@ -135,18 +134,8 @@ button:hover{background:#1ebe5d;}
 <!-- Product Gallery -->
 <h2>👜 Popular Products</h2>
 <div class="product-gallery">
-<img src="https://www.dj-photo.com/application/files/3314/6417/7886/Osprey_bag_2048px.jpg" onclick="goWA()">
-<img src="https://cdn.prod.website-files.com/6256995755a7ea0a3d8fbd11/680560e7cf6ed2272d8ca1e2_Le%CC%81o%20et%20Violette.jpg" onclick="goWA()">
-<img src="https://cdn.prod.website-files.com/6256995755a7ea0a3d8fbd11/68055cfd63cfe94a1c4cbcb7_Von%20Baer.jpg" onclick="goWA()">
-<img src="https://studioburkedc.com/cdn/shop/products/sterling-burke-petite-beatrice-handbag-london-tan-1.jpg?v=1581461565&width=533" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2017/08/10/07/00/bag-2611558_1280.jpg" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/handbag-1950444_1280.jpg" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/fashion-1866574_1280.jpg" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2016/11/29/03/47/fashion-1866555_1280.jpg" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2016/11/29/03/54/fashion-1866575_1280.jpg" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2016/11/29/03/52/fashion-1866573_1280.jpg" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2017/03/12/13/41/shoes-2139336_1280.jpg" onclick="goWA()">
-<img src="https://cdn.pixabay.com/photo/2016/03/27/20/44/watch-1284081_1280.jpg" onclick="goWA()">
+<img src="https://images.unsplash.com/photo-1682745230951-8a5aa9a474a0?auto=format&fit=crop&w=1200" onclick="goWA()">
+<img src="https://images.unsplash.com/photo-1583623733237-4d5764a9dc82?auto=format&fit=crop&w=1200" onclick="goWA()">
 </div>
 
 <!-- Blog Articles (左右图文布局) -->
@@ -208,11 +197,10 @@ function toggleArticle(btn){
   fbq('track','ViewContent');
 }
 
-// 2-3 Blog Articles
+// 2 Blog Articles
 const blogs = [
-  {title:"How To Choose High Quality Bags", img:"https://cdn.pixabay.com/photo/2017/08/10/07/00/bag-2611558_1280.jpg", content:"Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement."},
-  {title:"Why Buy Direct From Factory", img:"https://cdn.pixabay.com/photo/2016/11/29/03/53/fashion-1866574_1280.jpg", content:"Factories remove middlemen which reduces price by 30-50%. Many international buyers now purchase directly through WhatsApp suppliers."},
-  {title:"Top Trending Watches 2025", img:"https://cdn.pixabay.com/photo/2016/03/27/20/44/watch-1284081_1280.jpg", content:"Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing."}
+  {title:"How To Choose High Quality Bags", img:"https://images.unsplash.com/photo-1682745230951-8a5aa9a474a0?auto=format&fit=crop&w=1200", content:"Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement."},
+  {title:"Top Trending Watches 2025", img:"https://images.unsplash.com/photo-1583623733237-4d5764a9dc82?auto=format&fit=crop&w=1200", content:"Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing."}
 ];
 
 const blogContainer = document.getElementById('blogContainer');
