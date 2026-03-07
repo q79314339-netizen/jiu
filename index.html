@@ -75,15 +75,28 @@ button:hover{background:#1ebe5d;}
   width:300px;
   border-radius:12px;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+.blog-left-right img:hover{
+  transform: scale(1.08) rotate(1deg);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 .blog-text h3{margin-top:0;}
 .blog-text p{color:#555;font-size:15px;}
-.blog-text button{
+.blog-text button.cta-btn{
+  background:#FF6B6B;
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:10px;
+  cursor:pointer;
   margin-top:10px;
-  background:#25D366;color:white;border:none;
-  padding:8px 15px;border-radius:8px;cursor:pointer;
+  font-weight:bold;
+  transition: background 0.3s;
 }
-.blog-text button:hover{background:#1ebe5d;}
+.blog-text button.cta-btn:hover{
+  background:#ff3b3b;
+}
 .read-more{display:none;margin-top:10px;font-size:14px;color:#444;}
 
 /* Testimonials */
@@ -131,14 +144,14 @@ button:hover{background:#1ebe5d;}
 <button id="waBtn">Contact on WhatsApp</button>
 </div>
 
-<!-- Product Gallery (2张不同高清图) -->
+<!-- Product Gallery -->
 <h2>👜 Popular Products</h2>
 <div class="product-gallery">
   <img src="https://images.unsplash.com/photo-1682745230951-8a5aa9a474a0?auto=format&fit=crop&w=1200" onclick="goWA()">
   <img src="https://images.unsplash.com/photo-1600185367414-48509f22217b?auto=format&fit=crop&w=1200" onclick="goWA()">
 </div>
 
-<!-- Blog Articles (2篇不同高清图) -->
+<!-- Blog Articles -->
 <h2>📰 Latest Articles</h2>
 <div id="blogContainer"></div>
 
@@ -190,23 +203,16 @@ function goWA(){
 document.getElementById("waBtn").onclick=goWA;
 document.getElementById("waBtn2").onclick=goWA;
 
-// Toggle Read More
-function toggleArticle(btn){
-  const content=btn.nextElementSibling;
-  content.style.display=content.style.display==="block"?"none":"block";
-  fbq('track','ViewContent');
-}
-
-// Blog Articles (2篇不同图)
+// Blog Articles
 const blogs = [
   {
     title:"How To Choose High Quality Bags",
-    img:"https://images.unsplash.com/photo-1583623733237-4d5764a9dc82?auto=format&fit=crop&w=1200",
+    img:"https://cdn.prod.website-files.com/6256995755a7ea0a3d8fbd11/680560e7cf6ed2272d8ca1e2_Le%CC%81o%20et%20Violette.jpg",
     content:"Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement."
   },
   {
     title:"Top Trending Watches 2025",
-    img:"https://images.unsplash.com/photo-1585079541595-8e21b0e7f8c6?auto=format&fit=crop&w=1200",
+    img:"https://cdn.prod.website-files.com/6256995755a7ea0a3d8fbd11/68055cfd63cfe94a1c4cbcb7_Von%20Baer.jpg",
     content:"Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing."
   }
 ];
@@ -223,7 +229,7 @@ blogs.forEach((b,i)=>{
     <div class="blog-text" style="order:${isEven?1:0}">
       <h3>${b.title}</h3>
       <p>${b.content}</p>
-      <button onclick="toggleArticle(this)">Read More</button>
+      <button class="cta-btn" onclick="goWA()">了解更多</button>
       <div class="read-more">${b.content} Contact us via WhatsApp for details.</div>
     </div>
   `;
