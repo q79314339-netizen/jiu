@@ -3,165 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Contact Landing Page</title>
+<title>Factory Direct Bags Shoes Watches</title>
+
+<!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+t=b.createElement(e);t.async=!0;t.src=v;
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1355803952514780');
+fbq('track', 'PageView');
+</script>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-  }
 
-  .container {
-    background: rgba(255,255,255,0.95);
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    text-align: center;
-    max-width: 600px;
-    width: 100%;
-  }
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#a1c4fd,#c2e9fb);
+margin:0;
+padding:20px;
+display:flex;
+justify-content:center;
+}
 
-  .avatar-placeholder {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #25D366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 48px;
-    font-weight: bold;
-  }
+.container{
+background:white;
+max-width:750px;
+width:100%;
+padding:30px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
 
-  h1 {
-    margin-bottom: 20px;
-    color: #333;
-  }
+.avatar{
+width:120px;
+height:120px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+color:white;
+margin:auto;
+}
 
-  p {
-    margin-bottom: 30px;
-    color: #555;
-    font-size: 18px;
-    line-height: 1.6;
-  }
+h1{text-align:center}
 
-  button {
-    background-color: #25D366;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+button{
+background:#25D366;
+color:white;
+border:none;
+padding:14px 20px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
 
-  button:hover {
-    background-color: #1ebe5d;
-  }
+button:hover{
+background:#1ebe5d;
+}
 
-  .info-section {
-    text-align: left;
-    margin-top: 30px;
-  }
+.blog-card{
+background:#f9f9f9;
+padding:18px;
+margin-top:15px;
+border-radius:12px;
+}
 
-  .info-section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333;
-  }
+.blog-card h3{
+margin-top:0;
+}
 
-  .info-section ul {
-    padding-left: 20px;
-    color: #555;
-  }
+.read-more{
+margin-top:10px;
+font-size:15px;
+color:#444;
+display:none;
+}
 
-  .info-section ul li {
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
+.info-section{
+margin-top:30px;
+}
+
+.testimonials-container{
+margin-top:15px;
+overflow:hidden;
+}
+
+.testimonials-track{
+display:flex;
+transition:transform 0.4s ease;
+}
+
+.testimonial-card{
+flex:0 0 80%;
+margin-right:15px;
+background:white;
+border-radius:12px;
+padding:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.testimonial-avatar{
+width:50px;
+height:50px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:bold;
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <div class="avatar-placeholder">H</div>
 
-  <h1>We Are a Chinese Factory 🥰</h1>
-  <p>
-    Our products include bags, shoes, clothes, watches and more 🤩  
-    Click the button below to contact us on WhatsApp!
-  </p>
+<div class="avatar">H</div>
 
-  <button id="whatsappBtn">Contact via WhatsApp</button>
+<h1>Factory Direct Bags Shoes Watches</h1>
 
-  <div class="info-section">
-    <h2>🚚 Shipping</h2>
-    <ul>
-      <li>Orders processed within 24 hours</li>
-      <li>DHL / FedEx / UPS shipping</li>
-      <li>Tracking number provided</li>
-    </ul>
+<p style="text-align:center">
+15 Years Factory Experience.  
+Factory price + worldwide shipping.
+</p>
 
-    <h2>💰 Payment</h2>
-    <ul>
-      <li>PayPal</li>
-      <li>Western Union</li>
-      <li>Bank Transfer</li>
-    </ul>
-
-    <h2>📩 Free Consultation</h2>
-    <ul>
-      <li>Send product pictures</li>
-      <li>Free quotation</li>
-      <li>Fast WhatsApp reply</li>
-    </ul>
-  </div>
+<div style="text-align:center;margin-bottom:20px;">
+<button id="waBtn">Contact on WhatsApp</button>
 </div>
 
-<!-- ===============================
-     WhatsApp 随机分配（小白稳定版）
-     =============================== -->
+
+<h2>📰 Latest Articles</h2>
+
+<div class="blog-card">
+<h3>How To Choose High Quality Bags</h3>
+<p>Many buyers don't know how to judge quality when buying bags online.</p>
+<button onclick="toggleArticle(this)">Read More</button>
+<div class="read-more">
+Our factory suggests checking stitching, zipper quality and leather texture. High quality bags always have precise stitching and smooth zipper movement.
+</div>
+</div>
+
+<div class="blog-card">
+<h3>Why Buy Direct From Factory</h3>
+<p>Buying directly from factory can save a lot of cost.</p>
+<button onclick="toggleArticle(this)">Read More</button>
+<div class="read-more">
+Factories remove middlemen which reduces price by 30-50%. Many international buyers now purchase directly through WhatsApp suppliers.
+</div>
+</div>
+
+<div class="blog-card">
+<h3>Top Trending Watches 2025</h3>
+<p>Luxury watches remain one of the most demanded accessories.</p>
+<button onclick="toggleArticle(this)">Read More</button>
+<div class="read-more">
+Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing.
+</div>
+</div>
+
+
+
+<div class="info-section">
+
+<h2>🚚 Shipping</h2>
+<ul>
+<li>24 hour processing</li>
+<li>DHL / FedEx / UPS</li>
+<li>Tracking number provided</li>
+</ul>
+
+<h2>💰 Payment</h2>
+<ul>
+<li>PayPal</li>
+<li>Western Union</li>
+<li>Bank Transfer</li>
+</ul>
+
+
+<h2>🌟 Customer Testimonials</h2>
+
+<div class="testimonials-container">
+<div class="testimonials-track" id="track"></div>
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:25px;">
+<button id="waBtn2">Chat With Us On WhatsApp</button>
+</div>
+
+</div>
+
+
 <script>
-const links = [
-  "https://wa.me/8618159028424",
-  "https://wa.me/8618396503253",
-  "https://wa.me/8618050517014",
-  "https://wa.me/8618042421517"
+
+const WA_POOL=[
+{link:"https://wa.me/8618159028424"},
+{link:"https://wa.me/8618396503253"},
+{link:"https://wa.me/8618050517014"}
 ];
 
-// 读取 Cookie
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  return match ? match[2] : null;
+let waIndex=Math.floor(Math.random()*WA_POOL.length);
+
+function goWA(){
+const eventId='evt_'+Date.now();
+fbq('track','Contact',{}, {eventID:eventId});
+setTimeout(()=>{
+window.location.href=WA_POOL[waIndex].link
+},300);
 }
 
-// 写 Cookie（30 天）
-function setCookie(name, value) {
-  document.cookie = name + "=" + value + ";path=/;max-age=2592000";
+document.getElementById("waBtn").onclick=goWA;
+document.getElementById("waBtn2").onclick=goWA;
+
+
+function toggleArticle(btn){
+const content=btn.nextElementSibling;
+content.style.display=content.style.display==="block"?"none":"block";
+
+fbq('track','ViewContent');
 }
 
-// 第一次访问随机分配 WhatsApp
-let idx = getCookie("wa_idx");
-if (idx === null) {
-  idx = Math.floor(Math.random() * links.length);
-  setCookie("wa_idx", idx);
+
+const testimonials=[
+"Great quality and fast delivery.",
+"Very reliable supplier.",
+"Communication was excellent.",
+"Products look amazing.",
+"Will definitely order again."
+];
+
+const names=["Alice","Bob","David","Emma","Jack","Lisa"];
+
+const track=document.getElementById("track");
+
+function randomColor(){
+return "#"+Math.floor(Math.random()*16777215).toString(16);
 }
 
-// 点击按钮跳转
-document.getElementById("whatsappBtn").onclick = function () {
-  window.location.href = links[idx];
-};
+testimonials.forEach(t=>{
+const name=names[Math.floor(Math.random()*names.length)];
+const div=document.createElement("div");
+div.className="testimonial-card";
+div.innerHTML=`
+<div class="testimonial-avatar" style="background:${randomColor()}">${name[0]}</div>
+<p><strong>${name}</strong>: ${t}</p>
+`;
+track.appendChild(div);
+});
+
+
+let index=0;
+
+setInterval(()=>{
+index=(index+1)%track.children.length;
+track.style.transform=`translateX(-${index*85}%)`;
+},3000);
+
+
 </script>
 
 </body>
