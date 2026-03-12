@@ -3,264 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Bags & Watches Factory</title>
+<title>Luxury Bags Landing Page</title>
 
 <!-- Facebook Pixel -->
 <script>
-!function(f,b,e,v,n,t,s){
-if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
-t=b.createElement(e);t.async=!0;t.src=v;
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
-}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1355803952514780');
-fbq('track', 'PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init','YOUR_PIXEL_ID');
+fbq('track','PageView');
 </script>
 
 <style>
-body{
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#a1c4fd,#c2e9fb);
-  margin:0;padding:20px;
-  display:flex;justify-content:center;
-}
-.container{
-  max-width:900px;width:100%;
-  background:white;
-  border-radius:20px;
-  padding:30px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.15);
-}
-.avatar{
-  width:120px;height:120px;
-  border-radius:50%;
-  background:#25D366;
-  display:flex;justify-content:center;align-items:center;
-  color:white;font-size:40px;
-  margin:auto;
-}
-h1{text-align:center;margin-bottom:10px;}
-p{text-align:center;margin-bottom:20px;color:#555;font-size:16px;}
-button{
-  background:#25D366;color:white;border:none;
-  padding:14px 20px;font-size:18px;
-  border-radius:10px;cursor:pointer;
-}
-button:hover{background:#1ebe5d;}
-
-/* Product gallery */
-.product-gallery{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  margin-top:15px;
-}
-.product-gallery img{
-  width:100%;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  cursor:pointer;
-  transition: transform 0.3s;
-}
-.product-gallery img:hover{transform:scale(1.05);}
-
-/* Blog left-right layout */
-.blog-left-right{
-  display:flex;
-  gap:20px;
-  margin-top:20px;
-  align-items:center;
-}
-.blog-left-right img{
-  width:300px;
-  border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.5s, box-shadow 0.5s;
-}
-.blog-left-right img:hover{
-  transform: scale(1.08) rotate(1deg);
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-.blog-text h3{margin-top:0;}
-.blog-text p{color:#555;font-size:15px;}
-.blog-text button.cta-btn{
-  background:#FF6B6B;
-  color:white;
-  border:none;
-  padding:10px 18px;
-  border-radius:10px;
-  cursor:pointer;
-  margin-top:10px;
-  font-weight:bold;
-  transition: background 0.3s;
-}
-.blog-text button.cta-btn:hover{
-  background:#ff3b3b;
-}
-.read-more{display:none;margin-top:10px;font-size:14px;color:#444;}
-
-/* Testimonials */
-.testimonials-container{margin-top:15px;overflow:hidden;}
-.testimonials-track{display:flex;transition:transform 0.4s ease;}
-.testimonial-card{
-  flex:0 0 80%;margin-right:15px;
-  background:white;border-radius:12px;
-  padding:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  display:flex;align-items:center;gap:12px;
-}
-.testimonial-avatar{
-  width:50px;height:50px;border-radius:50%;
-  display:flex;justify-content:center;align-items:center;
-  color:white;font-weight:bold;
-}
-
-@media(max-width:768px){
-  .blog-left-right{flex-direction:column;}
-  .blog-left-right img{width:100%;}
-  .product-gallery{grid-template-columns:1fr;}
-  .testimonial-card{flex:0 0 90%;}
-}
-
-/* Floating WA */
-#floatingWA{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:999;
-  cursor:pointer;
-  transition: transform 0.3s;
-}
-#floatingWA:hover{transform:scale(1.1);}
+body{font-family:'Arial',sans-serif;margin:0;background:#fff;color:#222;}
+.container{max-width:1000px;margin:auto;padding:20px;}
+.hero{text-align:center;padding:60px 20px;}
+.hero h1{font-size:32px;font-weight:700;}
+.cta{background:#25D366;color:white;padding:14px 30px;border:none;border-radius:12px;font-size:18px;cursor:pointer;margin-top:15px;}
+.viewer{background:#fff3cd;padding:10px;border-radius:8px;margin-top:10px;}
+.products{display:flex;overflow-x:auto;gap:20px;margin-top:30px;}
+.product{min-width:220px;box-shadow:0 4px 12px rgba(0,0,0,0.1);border-radius:12px;overflow:hidden;}
+.product img{width:100%;display:block;}
+.product-info{text-align:center;padding:10px;}
+.review-slider{display:flex;overflow-x:auto;gap:15px;margin-top:20px;}
+.review{min-width:200px;background:#f5f5f5;padding:12px;border-radius:12px;display:flex;align-items:center;gap:10px;}
+.review img{width:50px;height:50px;border-radius:50%;}
+.order-popup{position:fixed;bottom:90px;left:20px;background:white;box-shadow:0 4px 12px rgba(0,0,0,0.15);padding:10px 15px;border-radius:10px;font-size:14px;display:none;}
+.float-wa{position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;}
+.float-wa img{width:35px;}
+@media(max-width:700px){.products{flex-direction:column;}.review-slider{flex-direction:column;}}
 </style>
 </head>
+
 <body>
-
 <div class="container">
-<div class="avatar">H</div>
-<h1>Luxury Bags & Watches Factory</h1>
-<p>15 Years Factory Experience | Worldwide Shipping | WhatsApp Order</p>
 
-<div style="text-align:center;margin-bottom:20px;">
-<button id="waBtn">Contact on WhatsApp</button>
+<!-- Hero -->
+<div class="hero">
+<h1>Luxury Bags Factory Price</h1>
+<p>Premium Quality | Worldwide Shipping</p >
+<div class="viewer">🔥 <span id="viewer"></span> people viewing now</div>
+<button class="cta" onclick="goWA()">Chat with <span id="agentName"></span> on WhatsApp</button>
 </div>
 
-<!-- Product Gallery -->
-<h2>👜 Popular Products</h2>
-<div class="product-gallery">
-  <img src="https://images.unsplash.com/photo-1682745230951-8a5aa9a474a0?auto=format&fit=crop&w=1200" onclick="goWA()">
-  <img src="https://images.unsplash.com/photo-1600185367414-48509f22217b?auto=format&fit=crop&w=1200" onclick="goWA()">
-</div>
-
-<!-- Blog Articles -->
-<h2>📰 Latest Articles</h2>
-<div id="blogContainer"></div>
-
-<!-- Info Section -->
-<div class="info-section">
-<h2>🚚 Shipping</h2>
-<ul>
-<li>Orders processed within 24 hours</li>
-<li>DHL / FedEx / UPS shipping</li>
-<li>Tracking number provided</li>
-</ul>
-
-<h2>💰 Payment</h2>
-<ul>
-<li>PayPal</li>
-<li>Western Union</li>
-<li>Bank Transfer</li>
-</ul>
-
-<h2>🌟 Customer Testimonials</h2>
-<div class="testimonials-container">
-<div class="testimonials-track" id="track"></div>
+<!-- Product Slider -->
+<h2>🔥 Popular Products</h2>
+<div class="products">
+<div class="product">
+< img src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-neverfull-mm--M46975_PM2_Front%20view.jpg">
+<div class="product-info">
+<p>Neverfull MM</p >
+<button class="cta" onclick="trackProduct('Neverfull MM')">Ask Price</button>
 </div>
 </div>
 
-<div style="text-align:center;margin-top:25px;">
-<button id="waBtn2">Chat With Us On WhatsApp</button>
+<div class="product">
+< img src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton-messenger-bag--M43895_PM2_Front%20view.jpg">
+<div class="product-info">
+<p>Messenger Bag</p >
+<button class="cta" onclick="trackProduct('Messenger Bag')">Ask Price</button>
 </div>
 </div>
+
+<div class="product">
+< img src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton-tambour-watch--Q1D010_PM2_Front%20view.jpg">
+<div class="product-info">
+<p>Tambour Watch</p >
+<button class="cta" onclick="trackProduct('Tambour Watch')">Ask Price</button>
+</div>
+</div>
+</div>
+
+<!-- Review Slider -->
+<h2>⭐ Customer Reviews</h2>
+<div class="review-slider">
+<div class="review">< img src="avatar1.jpg"><p>Great quality! Fast shipping. — Emma</p ></div>
+<div class="review">< img src="avatar2.jpg"><p>Best supplier I worked with. — Mike</p ></div>
+<div class="review">< img src="avatar3.jpg"><p>Excellent service. — Sophia</p ></div>
+</div>
+
+</div>
+
+<!-- Order Popup -->
+<div class="order-popup" id="orderPopup"></div>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/8618159028424" id="floatingWA" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:60px;height:60px;">
-</a>
+<div class="float-wa" onclick="goWA()">
+< img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</div>
 
 <script>
-// WhatsApp random pool
+/* 客服池 */
 const WA_POOL=[
-{link:"https://wa.me/8618159028424"},
-{link:"https://wa.me/8618396503253"},
-{link:"https://wa.me/8618050517014"}
+{name:"Alice",number:"8618396503253"},
+{name:"Bob",number:"8613062151120"},
+{name:"Charlie",number:"8615205956592"},
+{name:"Diana",number:"8618050517014"}
 ];
-let waIndex=Math.floor(Math.random()*WA_POOL.length);
-function goWA(){
-  const eventId='evt_'+Date.now();
-  fbq('track','Contact',{}, {eventID:eventId});
-  setTimeout(()=>{window.location.href=WA_POOL[waIndex].link},300);
+
+/* Cookie 工具 */
+function getCookie(name){const m=document.cookie.match(new RegExp('(^| )'+name+'=([^;]+)'));return m?parseInt(m[2]):null;}
+function setCookie(name,value,days=365){const d=new Date();d.setTime(d.getTime()+days*24*60*60*1000);document.cookie=name+"="+value+";path=/;expires="+d.toUTCString();}
+
+/* 客服均匀分流 */
+let waIndex=getCookie("wa_idx");
+if(waIndex===null){
+let last=parseInt(localStorage.getItem("wa_last")||-1);
+waIndex=(last+1)%WA_POOL.length;
+localStorage.setItem("wa_last",waIndex);
+setCookie("wa_idx",waIndex);
 }
-document.getElementById("waBtn").onclick=goWA;
-document.getElementById("waBtn2").onclick=goWA;
+document.getElementById("agentName").innerText=WA_POOL[waIndex].name;
 
-// Blog Articles
-const blogs = [
-  {
-    title:"How To Choose High Quality Bags",
-    img:"https://cdn.prod.website-files.com/6256995755a7ea0a3d8fbd11/680560e7cf6ed2272d8ca1e2_Le%CC%81o%20et%20Violette.jpg",
-    content:"Check stitching, zippers, and leather texture. High quality bags always have precise stitching and smooth zipper movement."
-  },
-  {
-    title:"Top Trending Watches 2025",
-    img:"https://cdn.prod.website-files.com/6256995755a7ea0a3d8fbd11/68055cfd63cfe94a1c4cbcb7_Von%20Baer.jpg",
-    content:"Models with stainless steel and automatic movement are the most popular. Many buyers prefer factory suppliers for better pricing."
-  }
-];
+/* WhatsApp跳转 */
+function goWA(){
+const agent=WA_POOL[waIndex];
+const msg="Hello I saw your product on Facebook. Can you send price?";
+const link="https://wa.me/"+agent.number+"?text="+encodeURIComponent(msg);
+fbq('track','Lead');
+setTimeout(()=>{window.location.href=link;},700);
+}
 
-const blogContainer = document.getElementById('blogContainer');
-blogs.forEach((b,i)=>{
-  const card = document.createElement('div');
-  card.className = 'blog-left-right';
-  const isEven = i%2===0;
-  card.innerHTML = `
-    <div class="blog-image" style="order:${isEven?0:1}">
-      <img src="${b.img}">
-    </div>
-    <div class="blog-text" style="order:${isEven?1:0}">
-      <h3>${b.title}</h3>
-      <p>${b.content}</p>
-      <button class="cta-btn" onclick="goWA()">了解更多</button>
-      <div class="read-more">${b.content} Contact us via WhatsApp for details.</div>
-    </div>
-  `;
-  blogContainer.appendChild(card);
-});
+/* 产品点击追踪 */
+function trackProduct(name){
+fbq('track','ViewContent',{content_name:name});
+goWA();
+}
 
-// Testimonials
-const testimonials=[
-"Great quality and fast delivery.",
-"Very reliable supplier.",
-"Communication was excellent.",
-"Products look amazing.",
-"Will definitely order again."
-];
-const names=["Alice","Bob","David","Emma","Jack","Lisa"];
-const track=document.getElementById("track");
-function randomColor(){return "#"+Math.floor(Math.random()*16777215).toString(16);}
-testimonials.forEach(t=>{
-  const name=names[Math.floor(Math.random()*names.length)];
-  const div=document.createElement("div");
-  div.className="testimonial-card";
-  div.innerHTML=`<div class="testimonial-avatar" style="background:${randomColor()}">${name[0]}</div>
-  <p><strong>${name}</strong>: ${t}</p>`;
-  track.appendChild(div);
-});
-let index=0;
-setInterval(()=>{
-  index=(index+1)%track.children.length;
-  track.style.transform=`translateX(-${index*85}%)`;
-},3000);
+/* 在线人数提示 */
+function updateViewer(){
+document.getElementById("viewer").innerText=8+Math.floor(Math.random()*15);
+}
+setInterval(updateViewer,3000);
+updateViewer();
+
+/* 最近订单弹窗 */
+const names=["Emma","Lucas","Olivia","Jack"];
+const countries=["USA","UK","Canada","Germany"];
+function showOrder(){
+const name=names[Math.floor(Math.random()*names.length)];
+const country=countries[Math.floor(Math.random()*countries.length)];
+const popup=document.getElementById("orderPopup");
+popup.innerText=name+" from "+country+" just ordered";
+popup.style.display="block";
+setTimeout(()=>{popup.style.display="none";},4000);
+}
+setInterval(showOrder,12000);
+
+/* 自动弹窗咨询 */
+setTimeout(()=>{
+if(confirm("Need price list? Chat with us on WhatsApp?")){
+goWA();
+}
+},25000);
 </script>
-
 </body>
 </html>
