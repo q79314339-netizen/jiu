@@ -3,227 +3,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Timeless Luxury Collection</title>
 
-<!-- Facebook Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}
-(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init','YOUR_PIXEL_ID'); 
-fbq('track','PageView');
-</script>
+<title>Factory Direct Luxury Bags</title>
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Georgia', serif; background: #0a0a0a; color: #fff; }
-.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-.hero { text-align: center; padding: 80px 20px; background: linear-gradient(135deg, #121212 0%, #1c1c1c 100%); border-radius: 20px; margin-bottom: 40px; border: 1px solid #333; }
-.hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 15px; color: #fff; }
-.hero p { font-size: 18px; color: #ccc; margin-bottom: 25px; }
-.cta { background: #d4af37; color: #000; padding: 18px 40px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; cursor: pointer; transition: 0.3s; }
-.cta:hover { background: #e5c150; }
-.viewer { background: #222; color: #d4af37; padding: 12px 20px; border-radius: 30px; display: inline-block; font-size: 15px; margin-bottom: 20px; }
 
-h2 { font-size: 32px; margin-bottom: 30px; color: #fff; }
-.products { display: flex; gap: 25px; overflow-x: auto; padding-bottom: 20px; }
-.product { min-width: 280px; flex-shrink: 0; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #333; transition: 0.3s; cursor: pointer; }
-.product:hover { transform: scale(1.03); border-color: #d4af37; }
-.product img { width: 100%; height: 320px; object-fit: cover; }
-.product-info { padding: 20px; text-align: center; }
-.product-info p { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 15px; }
-
-.review-slider { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
-.review { min-width: 260px; background: #151515; padding: 20px; border-radius: 15px; border: 1px solid #2a2a2a; color: #eee; }
-.review img { width: 55px; height: 55px; border-radius: 50%; }
-
-.order-popup { position: fixed; bottom: 100px; left: 25px; background: #111; color: #fff; border: 1px solid #444; padding: 15px 25px; border-radius: 15px; display: none; z-index: 99; }
-.float-wa { position: fixed; bottom: 25px; right: 25px; width: 65px; height: 65px; background: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 999; }
-.float-wa img { width: 38px; }
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .product { min-width: 240px; }
-  .product img { height: 260px; }
+body{
+font-family:Arial;
+margin:0;
+background:#0d0d0d;
+color:white;
+text-align:center;
 }
+
+.container{
+max-width:900px;
+margin:auto;
+padding:25px;
+}
+
+h1{
+color:#FFD700;
+}
+
+button{
+background:linear-gradient(135deg,#FFD700,#FFA500);
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:25px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+cursor:pointer;
+}
+
+.timer{
+margin-top:15px;
+color:#FFD700;
+font-size:18px;
+font-weight:bold;
+}
+
+.online{
+color:#FFD700;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.order-alert{
+position:fixed;
+bottom:90px;
+right:20px;
+background:black;
+color:#FFD700;
+padding:12px 18px;
+border-radius:10px;
+opacity:0;
+transition:0.5s;
+}
+
+#waFloat{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+#waFloat img{
+width:35px;
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
-  <div class="hero">
-    <h1>Timeless Luxury Collection</h1>
-    <p>Handcrafted Excellence • Worldwide Express Shipping</p >
-    <div class="viewer">🔥 <span id="viewer"></span> people are viewing now</div>
-    <br>
-    <button class="cta" onclick="goWA()">Chat with <span id="agentName"></span> on WhatsApp</button>
-  </div>
 
-  <h2>✨ Featured Luxury Pieces</h2>
-  <div class="products-wrapper" id="productsWrapper">
-    <div class="products" id="products">
+<div class="online" id="online">Online Users: 0</div>
 
-      <!-- LV Neverfull MM -->
-      <div class="product" onclick="trackProduct('LV Neverfull MM')">
-        < img src="https://us.louisvuitton.com/auv2/pub/media/catalog/product/4/6/46987_PM2_Front%20view.jpg" alt="Louis Vuitton Neverfull MM">
-        <div class="product-info">
-          <p>LV Neverfull MM</p >
-          <button class="cta">Ask for Price</button>
-        </div>
-      </div>
+<h1>Factory Direct Luxury Bags</h1>
 
-      <!-- Chanel Classic Flap -->
-      <div class="product" onclick="trackProduct('Chanel Classic Flap')">
-        < img src="https://www.chanel.com/us/img/product/large/AS0164_B01479_N5460.jpg" alt="Chanel Classic Flap Bag">
-        <div class="product-info">
-          <p>Chanel Classic Flap</p >
-          <button class="cta">Ask for Price</button>
-        </div>
-      </div>
+<p>15 Years Experience Factory</p>
 
-      <!-- Hermès Birkin 30 -->
-      <div class="product" onclick="trackProduct('Hermès Birkin 30')">
-        < img src="https://cdn.hermes.com/img/birkin30_togo_black.jpg" alt="Hermès Birkin 30">
-        <div class="product-info">
-          <p>Hermès Birkin 30</p >
-          <button class="cta">Ask for Price</button>
-        </div>
-      </div>
-
-      <!-- Rolex GMT-Master II -->
-      <div class="product" onclick="trackProduct('Rolex GMT-Master II')">
-        < img src="https://www.rolex.com/content/dam/rolexcom/e-commerce/collections/gmt-master-ii/m126710blro-0001.png" alt="Rolex GMT-Master II">
-        <div class="product-info">
-          <p>Rolex GMT-Master II</p >
-          <button class="cta">Ask for Price</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="timer">
+🔥 Discount Ends In <span id="timer">15:00</span>
 </div>
 
-<h2>⭐ Verified Customer Reviews</h2>
-<div class="review-slider">
-  <div class="review">
-    < img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma">
-    <p>Stunning quality! Arrived in 3 days. — Emma</p >
-  </div>
-  <div class="review">
-    < img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Mike">
-    <p>Best replica I’ve ever bought. — Mike</p >
-  </div>
-  <div class="review">
-    < img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sophia">
-    <p>Perfect craftsmanship, worth every penny. — Sophia</p >
-  </div>
-  <div class="review">
-    < img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James">
-    <p>Fast shipping, great service. — James</p >
-  </div>
+<button onclick="goWA()">Contact on WhatsApp</button>
+
+
+<div class="gallery" id="gallery"></div>
+
+
+<h2>Shipping</h2>
+
+<p>DHL / FedEx / UPS</p>
+
+<h2>Payment</h2>
+
+<p>PayPal / Bank Transfer</p>
+
+<button onclick="goWA()">Order Now</button>
+
 </div>
 
-<div class="order-popup" id="orderPopup"></div>
 
-<div class="float-wa" onclick="goWA()">
-  < img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+<div id="waFloat" onclick="goWA()">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </div>
+
+<div class="order-alert" id="orderAlert"></div>
+
 
 <script>
-/* 客服轮询池 */
-const WA_POOL = [
-  {name:"Alice", number:"8618396503253"},
-  {name:"Bob", number:"8613062151120"},
-  {name:"Charlie", number:"8615205956592"},
-  {name:"Diana", number:"8618050517014"}
+
+/* ===== Pixel ===== */
+
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+
+const PIXEL="853640044397925";
+
+fbq('init',PIXEL,{external_id:Date.now()});
+fbq('track','PageView');
+
+
+setTimeout(()=>{
+fbq('trackCustom','PageEngaged');
+},5000);
+
+
+/* ===== WhatsApp Pool ===== */
+
+const WA_POOL=[
+"https://api.whatsapp.com/send?phone=8618396503253&text=Hello%20I%20want%20to%20order",
+"https://api.whatsapp.com/send?phone=8613062151120&text=Hello%20I%20want%20to%20order",
+"https://api.whatsapp.com/send?phone=8615205956592&text=Hello%20I%20want%20to%20order"
 ];
 
-/* Cookie 工具 */
-function getCookie(name) {
-  const m = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  return m ? parseInt(m[2]) : null;
-}
-function setCookie(name, value, days = 365) {
-  const d = new Date();
-  d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = name + "=" + value + ";path=/;expires=" + d.toUTCString();
-}
 
-/* 客服均匀分流 */
-let waIndex = getCookie("wa_idx");
-if (waIndex === null) {
-  let last = parseInt(localStorage.getItem("wa_last") || -1);
-  waIndex = (last + 1) % WA_POOL.length;
-  localStorage.setItem("wa_last", waIndex);
-  setCookie("wa_idx", waIndex);
-}
-document.getElementById("agentName").innerText = WA_POOL[waIndex].name;
+function goWA(){
 
-/* WhatsApp 跳转 */
-function goWA() {
-  const agent = WA_POOL[waIndex];
-  const msg = "Hello, I'm interested in your luxury collection. Could you send the latest price list?";
-  const link = "https://wa.me/" + agent.number + "?text=" + encodeURIComponent(msg);
-  fbq('track', 'Lead');
-  setTimeout(() => { window.location.href = link; }, 700);
+const id='evt_'+Date.now();
+
+fbq('track','Lead',{contact:'whatsapp'},{eventID:id});
+fbq('track','Contact',{contact:'whatsapp'},{eventID:id});
+
+let link=WA_POOL[Math.floor(Math.random()*WA_POOL.length)];
+
+setTimeout(()=>{
+window.location.href=link;
+},1200);
+
 }
 
-/* 产品点击追踪 */
-function trackProduct(name) {
-  fbq('track', 'ViewContent', { content_name: name });
-  goWA();
+
+/* ===== Scroll Event ===== */
+
+window.addEventListener('scroll',function(){
+
+if(window.scrollY>400){
+
+fbq('trackCustom','ScrollView');
+
 }
 
-/* 在线人数模拟 */
-function updateViewer() {
-  document.getElementById("viewer").innerText = 12 + Math.floor(Math.random() * 20);
-}
-setInterval(updateViewer, 3000);
-updateViewer();
-
-/* 模拟订单弹窗 */
-const names = ["Emma", "Lucas", "Olivia", "Jack", "Layla", "Noah"];
-const countries = ["USA", "UK", "Canada", "Germany", "Australia", "France"];
-function showOrder() {
-  const name = names[Math.floor(Math.random() * names.length)];
-  const country = countries[Math.floor(Math.random() * countries.length)];
-  const popup = document.getElementById("orderPopup");
-  popup.innerText = name + " from " + country + " just purchased";
-  popup.style.display = "block";
-  setTimeout(() => { popup.style.display = "none"; }, 5000);
-}
-setInterval(showOrder, 15000);
-
-/* 自动咨询弹窗 */
-setTimeout(() => {
-  if (confirm("Need exclusive catalog & best price? Chat with us on WhatsApp now!")) {
-    goWA();
-  }
-}, 30000);
-
-/* 产品轮播拖拽 */
-const productsWrapper = document.getElementById('productsWrapper');
-let isDown=false, startX, scrollLeft;
-productsWrapper.addEventListener('mousedown', e => {
-  isDown=true;
-  startX=e.pageX-productsWrapper.offsetLeft;
-  scrollLeft=productsWrapper.scrollLeft;
 });
-productsWrapper.addEventListener('mouseleave', () => { isDown=false; });
-productsWrapper.addEventListener('mouseup', () => { isDown=false; });
-productsWrapper.addEventListener('mousemove', e => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x=e.pageX-productsWrapper.offsetLeft;
-  const walk=(x-startX)*2;
-  productsWrapper.scrollLeft=scrollLeft-walk;
+
+
+/* ===== Products ===== */
+
+const products=[
+"https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-neverfull-mm--M46975_PM2_Front%20view.jpg",
+"https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-again--M25877_PM2_Front%20view.jpg"
+];
+
+const gallery=document.getElementById("gallery");
+
+products.forEach((p,i)=>{
+
+let img=document.createElement("img");
+
+img.src=p;
+
+img.onclick=()=>{
+
+fbq('track','ViewContent',{
+content_name:'LV Bag',
+content_ids:['bag_'+i],
+content_type:'product'
 });
+
+goWA();
+
+};
+
+gallery.appendChild(img);
+
+});
+
+
+/* ===== Online Counter ===== */
+
+function online(){
+
+let n=Math.floor(Math.random()*40+60);
+
+document.getElementById("online").innerText="Online Users: "+n;
+
+}
+
+setInterval(online,5000);
+
+online();
+
+
+/* ===== Countdown ===== */
+
+let time=900;
+
+setInterval(()=>{
+
+time--;
+
+let m=Math.floor(time/60);
+let s=time%60;
+
+document.getElementById("timer").innerText=
+m+":"+("0"+s).slice(-2);
+
+},1000);
+
+
+/* ===== Fake Orders ===== */
+
+const orders=[
+"Alice from USA purchased a bag",
+"Emma from UK ordered a handbag",
+"Lucas from Canada bought a watch",
+"Olivia from Australia placed an order"
+];
+
+function showOrder(){
+
+let alert=document.getElementById("orderAlert");
+
+alert.innerText="🎉 "+orders[Math.floor(Math.random()*orders.length)];
+
+alert.style.opacity=1;
+
+setTimeout(()=>{
+alert.style.opacity=0;
+},4000);
+
+}
+
+setInterval(showOrder,7000);
+
+
 </script>
+
+
 </body>
 </html>
