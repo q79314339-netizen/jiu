@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Factory Direct Luxury Bags</title>
 
 <style>
@@ -56,7 +55,6 @@ cursor:pointer;
 .timer{
 margin-top:15px;
 color:#FFD700;
-font-size:18px;
 font-weight:bold;
 }
 
@@ -99,7 +97,6 @@ width:35px;
 </style>
 </head>
 
-
 <body>
 
 <div class="container">
@@ -116,22 +113,17 @@ width:35px;
 
 <button onclick="goWA()">Contact on WhatsApp</button>
 
-
 <div class="gallery" id="gallery"></div>
 
-
 <h2>Shipping</h2>
-
 <p>DHL / FedEx / UPS</p>
 
 <h2>Payment</h2>
-
 <p>PayPal / Bank Transfer</p>
 
 <button onclick="goWA()">Order Now</button>
 
 </div>
-
 
 <div id="waFloat" onclick="goWA()">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
@@ -139,10 +131,9 @@ width:35px;
 
 <div class="order-alert" id="orderAlert"></div>
 
-
 <script>
 
-/* ===== Pixel ===== */
+/* ===== FB Pixel ===== */
 
 !function(f,b,e,v,n,t,s){
 if(f.fbq)return;
@@ -161,12 +152,10 @@ s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)
 }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-
 const PIXEL="853640044397925";
 
 fbq('init',PIXEL,{external_id:Date.now()});
 fbq('track','PageView');
-
 
 setTimeout(()=>{
 fbq('trackCustom','PageEngaged');
@@ -182,6 +171,21 @@ const WA_POOL=[
 ];
 
 
+/* ===== Fixed WhatsApp Routing ===== */
+
+let waIndex=document.cookie.match(/wa_idx=([^;]+)/)?.[1];
+
+if(!waIndex){
+
+waIndex=Math.floor(Math.random()*WA_POOL.length);
+
+document.cookie="wa_idx="+waIndex+";path=/;max-age=2592000";
+
+}
+
+
+/* ===== WhatsApp Click ===== */
+
 function goWA(){
 
 const id='evt_'+Date.now();
@@ -189,7 +193,7 @@ const id='evt_'+Date.now();
 fbq('track','Lead',{contact:'whatsapp'},{eventID:id});
 fbq('track','Contact',{contact:'whatsapp'},{eventID:id});
 
-let link=WA_POOL[Math.floor(Math.random()*WA_POOL.length)];
+let link=WA_POOL[waIndex];
 
 setTimeout(()=>{
 window.location.href=link;
@@ -300,9 +304,7 @@ alert.style.opacity=0;
 
 setInterval(showOrder,7000);
 
-
 </script>
-
 
 </body>
 </html>
